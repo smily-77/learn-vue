@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        {{meg}}
+        <memn-it :title='ptitle' :num='pnum' :boon='true' :arr='paar' :obj='pobj'></memn-it>
+        <!-- :num="pnum"  输出为数字类型   num="punm" 输出为字符串类型 -->
+    </div>
+    <script>
+        Vue.component('memn-it', {
+            //title:字符串类型  num:数字类型  boon:布尔类型  arr:数组类型 obj:对象类型
+            props: ['title', 'num', 'boon', 'arr', 'obj'],
+            template: `<div>
+                <span>{{title+"---"+num+"----"+boon}}</span>
+                <ul>
+                    <li :key="index" v-for="(item,index) in arr">{{item}}</li>
+                </ul>
+                <span>{{typeof boon}}</span>
+                <div>
+                   <span>{{obj.name}}</span>
+                   <span>{{obj.age}}</span>
+                </div>
+                </div>`
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                meg: '父组件的内容',
+                ptitle: 'hello',
+                pnum: 12,
+                paar: ["apple", "pear", "orange"],
+                pobj: {
+                    name: 'zhangsan',
+                    age: 23,
+                }
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

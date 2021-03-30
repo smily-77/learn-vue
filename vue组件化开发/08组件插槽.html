@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <demo>有一个错误</demo>
+        <demo></demo>
+    </div>
+    <script>
+        Vue.component('demo', {
+
+            template: `<div>
+                <strong>Error</strong>
+                <slot>没有错误</slot>
+                </div>`
+        })
+        var vm = new Vue({
+            el: '#app',
+
+        })
+    </script>
+
+</body>
+
+</html>

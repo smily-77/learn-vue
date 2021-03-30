@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style type="text/css">
+        .active {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+        
+        .error {
+            background-color: pink;
+        }
+        
+        .text {
+            color: red
+        }
+        
+        .base {
+            font-size: 100px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-bind:class='[activeClass,errorClass,{text:istext}]'>测试</div>
+        <!--对象和数组结合使用-->
+        <div v-bind:class='arrClass'>测试</div>
+        <div v-bind:class='objClass'>测试</div>
+        <!-- 带有默认的类，不会被覆盖，在原有的类上面添加 -->
+        <div class='base' v-bind:class='objClass'>测试</div>
+        <button v-on:click='head'>切换</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                activeClass: 'active',
+                errorClass: 'error',
+                istext: true,
+                arrClass: ['active', 'error'], //数组简化操作
+                objClass: { //对象简化操作
+                    active: true,
+                    error: true
+                }
+
+            },
+            methods: {
+                head: function() {
+                    this.activeClass = '';
+                    this.istext = !this.istext
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

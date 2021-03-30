@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <hello-word></hello-word>
+        <hello-tom></hello-tom>
+        <hello-lucky></hello-lucky>
+    </div>
+    <script>
+        var helloword = {
+            data: function() {
+                return {
+                    meg: ' helloword!'
+                }
+            },
+            template: '<div>{{meg}}</div>'
+        };
+        var hellotom = {
+            data: function() {
+                return {
+                    meg: 'hellotom!'
+                }
+            },
+            template: '<div>{{meg}}</div>'
+        };
+        var hellolucky = {
+            data: function() {
+                return {
+                    meg: 'hellolucky!'
+                }
+            },
+            template: '<div>{{meg}}</div>'
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            components: {
+                'hello-word': helloword,
+                'hello-tom': hellotom,
+                'hello-lucky': hellolucky
+            }
+        })
+    </script>
+
+</body>
+
+</html>

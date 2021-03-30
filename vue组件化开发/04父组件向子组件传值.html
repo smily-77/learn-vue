@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <div>{{meg}}</div>
+        <memn-nn title-wn="来自父组件的值"></memn-nn>
+        <memn-nn :title-wn="ptitle"></memn-nn>
+        <memn-nn :title-wn="ptitle" content="hello"></memn-nn>
+
+    </div>
+    <script>
+        Vue.component('memn-nn', {
+            props: ['titleWn', 'content'],
+            data: function() {
+                return {
+                    msg: '子组件的内容'
+                }
+            },
+            template: '<div>{{msg+"---"+titleWn+"---"+content}}</div>'
+        });
+        var vm = new Vue({
+            el: '#app',
+
+            data: {
+                meg: '父组件的内容',
+                ptitle: '动态',
+            },
+        })
+    </script>
+
+</body>
+
+</html>

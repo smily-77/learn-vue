@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span>用户名</span>
+        <input type="text" v-model.lazy="uname">
+        <span>{{tip}}</span>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                uname: '',
+                tip: ''
+            },
+            methods: {
+                //验证用户名的方法
+                checkname: function(uname) {
+                    //模拟调用接口
+                    var that = this;
+                    setTimeout(function() {
+                        if (uname == 'xiao') {
+                            that.tip = "该用户名已经存在"
+                        } else {
+                            that.tip = "该用户名可以使用"
+                        }
+                    }, 2000)
+                }
+            },
+            watch: {
+                uname: function(val) {
+                    //验证用户名
+                    this.checkname(val);
+                    //
+                    this.tip = "正在验证中....."
+
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

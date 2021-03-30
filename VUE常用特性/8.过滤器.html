@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="meg">
+        <div>{{meg | upper}}</div>
+        <div>{{meg | upper | lower}}</div>
+    </div>
+    <script>
+        //全局过滤器
+        // Vue.filter('upper', function(val) {
+        //     return val.charAt(0).toUpperCase() + val.slice(1);
+        // });
+        Vue.filter('lower', function(val) {
+            return val.charAt(0).toLowerCase() + val.slice(1);
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                meg: 'hello'
+            },
+
+            //局部过滤器
+            filters: {
+                upper: function(val) {
+                    return val.charAt(0).toUpperCase() + val.slice(1);
+                }
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

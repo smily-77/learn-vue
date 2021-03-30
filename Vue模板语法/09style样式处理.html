@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- 对象类型 -->
+        <div v-bind:style='{border:borderstyle,color:colorstyle,width:widthsize,height:heightsize}'>测试</div>
+        <!-- 对象类型简写 -->
+        <div v-bind:style='arrStyle'>测试</div>
+        <!-- 数组类型 后面的会将前面的覆盖-->
+        <div v-bind:style='[arrStyle,overrideStyle]'>测试</div>
+        <button v-on:click='head'>切换</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                borderstyle: '1px solid blue',
+                colorstyle: 'red',
+                widthsize: '300px',
+                heightsize: '200px',
+                arrStyle: {
+                    border: '1px solid blue',
+                    color: 'red',
+                    width: '300px',
+                    height: '200px',
+
+                },
+                overrideStyle: {
+                    border: '5px solid blue',
+                    backgroundColor: 'pink'
+                }
+
+
+            },
+            methods: {
+                head: function() {
+                    this.widthsize = '200px'
+                    this.arrStyle.width = '200px'
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
