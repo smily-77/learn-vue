@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/axios.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //get传递参数
+        //(1)
+        // axios.get('http://localhost:3000/axios?id=23').then(function(ret) {
+        //     console.log(ret.data)
+        // });
+        //(2)
+        // axios.get('http://localhost:3000/axiosrest/34').then(function(ret) {
+        //     console.log(ret.data)
+        // })
+        //(3)
+        // axios.get('http://localhost:3000/axiosparams', {
+        //     params: {
+        //         id: 123345
+        //     }
+        // }).then(function(ret) {
+        //     console.log(ret.data)
+        // });
+
+        //delete传递参数 与get类似
+        /*  axios.delete('http://localhost:3000/axios?id=345').then(function(ret) {
+             console.log(ret.data)
+         }); */
+
+        //post传递参数
+        //(1)
+        // axios.post('http://localhost:3000/axiospost', {
+        //     uname: 'yy',
+        //     id: 123456
+        // }).then(function(ret) {
+        //     console.log(ret.data);
+        // });
+        //(2)
+        // const params = new URLSearchParams();
+        // params.append('uname', 'yyq');
+        // params.append('id', '23');
+        // axios.post('http://localhost:3000/axiospost', params).then(function(ret) {
+        //     console.log(ret.data)
+        // })
+
+        //put传递参数 类似post
+        //(1)
+        // axios.put('http://localhost:3000/axiosput/6789', {
+        //     uname: 'yy',
+        //     age: 22
+        // }).then(function(ret) {
+        //     console.log(ret.data)
+        // })
+        //(2) 
+        const params = new URLSearchParams();
+        params.append('uname', 'yy');
+        params.append('age', '21');
+        axios.put('http://localhost:3000/axiosput/78', params).then(function(ret) {
+            console.log(ret.data)
+        })
+    </script>
+</body>
+
+</html>

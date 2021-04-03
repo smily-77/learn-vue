@@ -1,5 +1,5 @@
 {
-  "name": "vue",
+  "name": "mybook",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,9 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "gulp": "^4.0.2"
+    "express": "^4.17.1"
   }
 }

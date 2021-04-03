@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/axios.js'></script>
+</head>
+
+<body>
+    <script>
+        //配置请求基准url
+        axios.defaults.baseURL = 'http://localhost:3000/';
+
+        async function data() {
+            var info = await axios.get('/async1');
+            var ret = await axios.get('async2?info=' + info.data);
+            return ret;
+        };
+        data().then(function(ret) {
+            console.log(ret)
+        })
+    </script>
+
+</body>
+
+</html>

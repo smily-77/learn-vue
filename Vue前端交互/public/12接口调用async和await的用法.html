@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/axios.js'></script>
+</head>
+
+<body>
+    <script>
+        //设置配置请求的基准url地址
+        axios.defaults.baseURL = 'http://localhost:3000/';
+
+        async function data() {
+
+            // var ret = await axios.get('/adata');
+            // //console.log(ret)
+            // return ret;
+
+            //await后必须要跟一个promise对象
+            var ret = await new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve('nihaoya');
+                }, 1000);
+            })
+            return ret;
+        };
+
+
+        data().then(function(ret) {
+            console.log(ret)
+        })
+    </script>
+
+</body>
+
+</html>

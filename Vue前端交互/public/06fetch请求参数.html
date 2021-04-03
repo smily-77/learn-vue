@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //get
+
+        // fetch('http://localhost:3000/fetcha?id=123', {
+        //     method: 'get'
+        // }).then(function(data) {
+        //     return data.text();
+        // }).then(function(ret) {
+        //     console.log(ret)
+        // })
+
+
+        // fetch('http://localhost:3000/fetchb/456', {
+        //     method: 'get'
+        // }).then(function(data) {
+        //     return data.text()
+        // }).then(function(ret) {
+        //     console.log(ret)
+        // })
+
+
+        //delete
+
+        // fetch('http://localhost:3000/fetchc/798', {
+        //     method: 'delete'
+        // }).then(function(data) {
+        //     return data.text()
+        // }).then(function(ret) {
+        //     console.log(ret)
+        // })
+
+
+        //put
+
+        // fetch('http://localhost:3000/book', {
+        //     method: 'post',
+        //     body: 'name=yy&pwd=12345678',
+        //     headers: {
+        //         'Content-Type': 'application/x-www-form-urlencoded'
+        //     }
+        // }).then(function(data) {
+        //     return data.text()
+        // }).then(function(ret) {
+        //     console.log(ret)
+        // })
+
+        fetch('http://localhost:3000/book', {
+            method: 'post',
+            body: JSON.stringify({
+                name: 'yy',
+                pwd: '12345678'
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function(data) {
+            return data.text()
+        }).then(function(ret) {
+            console.log(ret)
+        })
+
+
+        //put
+        fetch('http://localhost:3000/book/003', {
+                method: 'put',
+                body: JSON.stringify({
+                    name: 'yy',
+                    pwd: '12345678'
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(function(data) {
+                return data.text()
+            })
+            .then(function(ret) {
+                console.log(ret);
+            })
+    </script>
+</body>
+
+</html>

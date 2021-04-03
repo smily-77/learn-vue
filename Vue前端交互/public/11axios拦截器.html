@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/axios.js'></script>
+</head>
+
+<body>
+    <script>
+        //设置请求的基准url地址
+        axios.defaults.baseURL = 'http://localhost:3000/';
+
+        // //请求拦截器
+        //在发送请求前配置一些信息
+        // axios.interceptors.request.use(function(config) {
+        //     console.log(config.url);
+        //     //设置请求头
+        //     config.headers.mytoken = 'hello';
+
+        //     return config
+        // }, function(err) {
+        //     //处理错误信息
+        //     console.log(err)
+        // });
+
+        //响应拦截器
+        //获取数据之前对数据进行一些处理
+        axios.interceptors.response.use(function(res) {
+            console.log(res);
+            var data = res.data;
+            return data;
+        }, function(err) {
+            console.log(err)
+        })
+
+        axios.get('/axios-interceptors').then(function(data) {
+            console.log(data)
+        })
+    </script>
+
+</body>
+
+</html>
