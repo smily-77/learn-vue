@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/vue.js'></script>
+    <script src='js/vue-router.js'></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 2.添加路由链接 -->
+        <router-link to="/user">User</router-link>
+        <router-link to="/register">Register</router-link>
+        <!-- 3.路由填充位 -->
+        <router-view></router-view>
+    </div>
+    <script>
+        //4.创建路由组件
+        const User = {
+            template: `<h2>User</h2>`
+        };
+        const Register = {
+            template: `<h2>Register</h2>`
+        };
+        //配置路由并创建路由实例对象
+        var router = new VueRouter({
+            routes: [{
+                //重定向 path后为原地址   redirect后为新地址
+                path: '/',
+                redirect: '/user'
+
+            }, {
+
+                path: '/user',
+                component: User
+            }, {
+                path: '/register',
+                component: Register
+            }]
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            router,
+        });
+    </script>
+
+</body>
+
+</html>

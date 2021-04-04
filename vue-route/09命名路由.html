@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/vue.js'></script>
+    <script src='js/vue-router.js'></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/user/1">User1</router-link>
+        <router-link to="/user/3">User3</router-link>
+        <router-link to="/user/4">User4</router-link>
+        <!-- 命名路由 -->
+        <router-link :to="{name:'user',params:{id:5}}">User5</router-link>
+        <router-link to="/user/6">User6</router-link>
+        <router-view></router-view>
+
+    </div>
+    <script>
+        const User = {
+            props: ['id', 'name', 'age'],
+            template: `<h2>
+                User{{id}}---{{name}}---{{age}}
+                </h2>`
+        };
+        var router = new VueRouter({
+            routes: [{
+                path: '/user/:id',
+                component: User,
+                props: route => ({
+                    name: 'yy',
+                    age: 23,
+                    id: route.params.id
+                }),
+                name: 'user'
+            }]
+
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            router,
+        })
+    </script>
+
+</body>
+
+</html>

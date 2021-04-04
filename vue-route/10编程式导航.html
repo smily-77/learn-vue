@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='js/vue.js'></script>
+    <script src='js/vue-router.js'></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/user">User</router-link>
+        <router-link to="/register">Register</router-link>
+        <router-view></router-view>
+    </div>
+    <script>
+        const User = {
+            template: `<div>
+                <h2>User</h2>
+                <button @click='goRegister'>跳转到register界面</button>
+                </div>`,
+            methods: {
+                goRegister() {
+                    this.$router.push('/register')
+                }
+            }
+        };
+        const Register = {
+            template: `<div>
+                <h2>Register</h2>
+                <button @click='goBack'>返回</button>
+                </div>`,
+            methods: {
+                goBack() {
+                    this.$router.go(-1)
+                }
+            }
+        };
+        var router = new VueRouter({
+            routes: [{
+                path: '/user',
+                component: User
+            }, {
+                path: '/register',
+                component: Register
+            }]
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            router,
+        })
+    </script>
+
+</body>
+
+</html>
